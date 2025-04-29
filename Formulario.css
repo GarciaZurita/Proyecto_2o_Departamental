@@ -1,0 +1,130 @@
+.formulario-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(20, 25, 45, 0.9);
+  border-radius: 12px;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.6),
+    0 0 40px rgba(153, 0, 255, 0.4);
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  border: 1px solid #00ffff;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Orbitron', 'Rajdhani', sans-serif;
+}
+
+.formulario-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    #ff00ff, #00ffff, #ffff00, #ff00ff
+  );
+  background-size: 400%;
+  z-index: -1;
+  animation: neon-border 8s linear infinite;
+  border-radius: 14px;
+  opacity: 0.5;
+}
+
+@keyframes neon-border {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.input-field {
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: 1px solid #00ffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #00ffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  font-family: 'Courier New', monospace;
+}
+
+.input-field:focus {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px #ff00ff;
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: rgba(0, 255, 255, 0.5);
+}
+
+.submit-button {
+  padding: 14px 20px;
+  background-color: #9900ff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 15px #9900ff,
+    0 4px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background-color: #8800ee;
+  box-shadow: 
+    0 0 25px #9900ff,
+    0 6px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+.submit-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    transparent, transparent, transparent,
+    rgba(255, 255, 255, 0.1), transparent
+  );
+  transform: rotate(30deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Fuentes recomendadas */
+/*
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+*/

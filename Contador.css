@@ -1,0 +1,235 @@
+.contador-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: rgba(10, 15, 30, 0.9);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.6),
+    0 0 40px rgba(153, 0, 255, 0.4);
+  text-align: center;
+  border: 1px solid #00ffff;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Orbitron', 'Rajdhani', sans-serif;
+}
+
+.contador-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    #ff00ff, #00ffff, #ffff00, #ff00ff
+  );
+  background-size: 400%;
+  z-index: -1;
+  animation: neon-border 8s linear infinite;
+  border-radius: 17px;
+  opacity: 0.3;
+}
+
+@keyframes neon-border {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.counter-display {
+  margin: 30px 0;
+  font-size: 1.8rem;
+}
+
+.count {
+  display: block;
+  font-weight: bold;
+  color: #00ffff;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px #00ffff;
+  font-size: 3rem;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from { text-shadow: 0 0 10px #00ffff; }
+  to { text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff; }
+}
+
+.timer {
+  display: block;
+  color: #ff0055;
+  font-size: 1.5rem;
+  text-shadow: 0 0 8px #ff0055;
+  letter-spacing: 2px;
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #9900ff;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  box-shadow: 0 0 15px #9900ff;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px #9900ff;
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background-color: #333;
+  color: #666;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+button.active {
+  background-color: #00ff88;
+  box-shadow: 0 0 20px #00ff88;
+}
+
+button.reset {
+  grid-column: span 2;
+  background-color: #ff0055;
+  box-shadow: 0 0 15px #ff0055;
+}
+
+button.reset:hover {
+  background-color: #e6004c;
+  box-shadow: 0 0 25px #ff0055;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    transparent, transparent, transparent,
+    rgba(255, 255, 255, 0.1), transparent
+  );
+  transform: rotate(30deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+.records {
+  margin-top: 40px;
+  text-align: left;
+  background-color: rgba(20, 25, 45, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ff00ff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+}
+
+.records h3 {
+  border-bottom: 1px solid #00ffff;
+  padding-bottom: 10px;
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff;
+  font-size: 1.5rem;
+}
+
+.records ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.records li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  color: #00ffff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.records li span {
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff;
+}
+
+.click-area {
+  grid-column: span 2;
+  padding: 40px;
+  background-color: rgba(0, 255, 255, 0.1);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px dashed #00ffff;
+  margin-bottom: 20px;
+}
+
+.click-area:hover {
+  background-color: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 30px #00ffff;
+  transform: scale(1.02);
+}
+
+.click-area p {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.history-control {
+  margin: 25px 0;
+  text-align: center;
+}
+
+.toggle-history-button {
+  background-color: #6c5ce7;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 20px #6c5ce7;
+}
+
+.toggle-history-button:hover {
+  background-color: #5649be;
+  box-shadow: 0 0 30px #6c5ce7;
+  transform: translateY(-3px);
+}
+
+/* Fuentes recomendadas */
+/*
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+*/

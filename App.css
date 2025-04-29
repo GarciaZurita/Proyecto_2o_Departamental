@@ -1,0 +1,452 @@
+/* ==================== */
+/* Loading screen neón */
+/* ==================== */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(10, 15, 30, 0.95);
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  font-family: 'Courier New', monospace;
+}
+
+.spinner {
+  border: 5px solid rgba(0, 255, 255, 0.2);
+  border-top: 5px solid #ff00ff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite, neon-pulse 2s ease-in-out infinite alternate;
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px #ff00ff;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes neon-pulse {
+  0% { box-shadow: 0 0 10px #ff00ff; }
+  100% { box-shadow: 0 0 30px #ff00ff, 0 0 40px #ff00ff; }
+}
+
+.loading-screen p {
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  animation: text-flicker 3s linear infinite;
+}
+
+@keyframes text-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  }
+  20%, 24%, 55% {  
+    text-shadow: none;
+  }
+}
+
+/* ================== */
+/* Error container neón */
+/* ================== */
+.error-container {
+  text-align: center;
+  padding: 3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(10, 15, 30, 0.9);
+  border: 1px solid #ff0055;
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.6);
+  border-radius: 8px;
+  color: #ff0055;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 5px #ff0055;
+}
+
+.error-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+  animation: blink 1.5s infinite;
+}
+
+.error-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.error-container button {
+  padding: 12px 30px;
+  background-color: #ff0055;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px #ff0055;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.error-container button:hover {
+  background-color: #e6004c;
+  box-shadow: 0 0 25px #ff0055;
+  transform: translateY(-2px);
+}
+
+.error-container button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    transparent, transparent, transparent,
+    rgba(255, 255, 255, 0.1), transparent
+  );
+  transform: rotate(30deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* ================ */
+/* App header neón */
+/* ================ */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background-color: rgba(20, 25, 45, 0.95);
+  color: #00ffff;
+  border-bottom: 1px solid #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  font-family: 'Courier New', monospace;
+  position: relative;
+  z-index: 100;
+}
+
+.app-header::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent, #00ffff, #ff00ff, #00ffff, transparent
+  );
+  animation: header-glow 3s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes header-glow {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.user-info img {
+  border-radius: 50%;
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #ff0055;
+  border: 1px solid #ff0055;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 0, 85, 0.2);
+  box-shadow: 0 0 20px #ff0055;
+  transform: translateY(-2px);
+}
+
+/* ============== */
+/* Navigation neón */
+/* ============== */
+.navigation {
+  display: flex;
+  gap: 15px;
+  padding: 1.5rem;
+  background-color: rgba(15, 20, 40, 0.9);
+  border-bottom: 1px solid #9900ff;
+  box-shadow: 0 5px 15px rgba(153, 0, 255, 0.3);
+}
+
+.nav-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.nav-button.active {
+  background-color: #9900ff;
+  color: white;
+  box-shadow: 0 0 20px #9900ff, 0 0 30px rgba(153, 0, 255, 0.5);
+  text-shadow: 0 0 10px white;
+}
+
+.nav-button.active::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid #9900ff;
+  border-radius: 6px;
+  animation: border-pulse 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes border-pulse {
+  0% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.05); }
+  100% { opacity: 0.8; transform: scale(1); }
+}
+
+/* ================== */
+/* Welcome message neón */
+/* ================== */
+.welcome-message {
+  text-align: center;
+  padding: 3rem;
+  margin-top: 3rem;
+  background-color: rgba(10, 15, 30, 0.7);
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+}
+
+.welcome-message::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 48%,
+    rgba(0, 255, 255, 0.1) 50%,
+    transparent 52%
+  );
+  background-size: 5px 5px;
+  opacity: 0.5;
+}
+
+.welcome-message h1 {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 3px;
+  animation: text-flicker 3s infinite;
+}
+
+.welcome-message p {
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+
+.welcome-message .highlight {
+  color: #ffff00;
+  text-shadow: 0 0 10px #ffff00;
+  font-weight: bold;
+}
+
+/* ==================== */
+/* ESTILOS GLOBALES */
+/* ==================== */
+html, body, #root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #0a0a12;
+  font-family: 'Courier New', monospace;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ==================== */
+/* LOADING SCREEN */
+/* ==================== */
+.loading-screen {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: rgba(10, 15, 30, 0.95);
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ... (mantén el resto de tus estilos de loading-screen igual) ... */
+
+/* ==================== */
+/* POKEMON CONTAINER (NUEVOS ESTILOS) */
+/* ==================== */
+.pokemon-main-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.pokemon-centered-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==================== */
+/* POKEMON GRID (ESTILOS ACTUALIZADOS) */
+/* ==================== */
+.grid-favoritos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  width: 100%;
+  justify-items: center;
+  margin: 30px 0;
+  padding: 0 20px;
+}
+
+.favorito-card {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(20, 25, 45, 0.7);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #9900ff;
+  box-shadow: 0 0 15px rgba(153, 0, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* ==================== */
+/* HEADER Y NAVEGACIÓN (AJUSTADOS) */
+/* ==================== */
+.app-header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* ... (mantén el resto de tus estilos de app-header igual) ... */
+}
+
+.navigation {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+  /* ... (mantén el resto de tus estilos de navigation igual) ... */
+}
+
+/* ==================== */
+/* COMPONENTES CENTRADOS */
+/* ==================== */
+.error-container, 
+.welcome-message {
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  /* ... (mantén el resto de tus estilos igual) ... */
+}
+
+/* ==================== */
+/* MEDIA QUERIES PARA RESPONSIVE */
+/* ==================== */
+@media (max-width: 768px) {
+  .grid-favoritos {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 0 10px;
+  }
+  
+  .pokemon-centered-content {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-favoritos {
+    grid-template-columns: 1fr;
+  }
+  
+  .favorito-card {
+    max-width: 100%;
+  }
+}

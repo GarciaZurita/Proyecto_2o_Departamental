@@ -1,0 +1,216 @@
+.auth-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 
+        0 0 10px rgba(0, 255, 255, 0.8),
+        0 0 20px rgba(0, 255, 255, 0.6),
+        inset 0 0 10px rgba(0, 255, 255, 0.4);
+    background-color: rgba(10, 15, 30, 0.9);
+    border: 1px solid #00ffff;
+    color: #00ffff;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+        45deg,
+        #ff00ff, #00ffff, #ffff00, #ff00ff
+    );
+    background-size: 400%;
+    z-index: -1;
+    animation: neon-border 8s linear infinite;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+@keyframes neon-border {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.google-btn, .facebook-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.google-btn {
+    background-color: #ff0055;
+    color: white;
+    text-shadow: 0 0 5px #fff;
+}
+
+.google-btn:hover {
+    background-color: #e6004c;
+    box-shadow: 0 0 15px #ff0055;
+}
+
+.facebook-btn {
+    background-color: #0099ff;
+    color: white;
+    text-shadow: 0 0 5px #fff;
+}
+
+.facebook-btn:hover {
+    background-color: #0088e6;
+    box-shadow: 0 0 15px #0099ff;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff;
+}
+
+.separator::before, .separator::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #00ffff;
+    box-shadow: 0 0 5px #00ffff;
+}
+
+.separator span {
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input {
+    padding: 14px;
+    border: 1px solid #00ffff;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    transition: all 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff00ff;
+    box-shadow: 0 0 15px #ff00ff;
+}
+
+button[type="submit"] {
+    padding: 14px;
+    background-color: #9900ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 10px #9900ff;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #8800ee;
+    box-shadow: 0 0 20px #9900ff;
+}
+
+button[disabled] {
+    background-color: #333;
+    color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.toggle-auth-mode {
+    background: none;
+    border: none;
+    text-align: center;
+    color: #00ffff;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 5px;
+    text-shadow: 0 0 5px #00ffff;
+    transition: all 0.3s;
+}
+
+.toggle-auth-mode:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+    text-decoration: none;
+}
+
+.message {
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.message.error {
+    background-color: rgba(255, 0, 85, 0.2);
+    color: #ff0055;
+    text-shadow: 0 0 5px #ff0055;
+    border: 1px solid #ff0055;
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+}
+
+/* Efecto de texto parpadeante para el título */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.auth-container h2 {
+    animation: blink 3s infinite;
+}

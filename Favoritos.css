@@ -1,0 +1,306 @@
+/* Base styles */
+:root {
+  --neon-cyan: #00ffff;
+  --neon-pink: #ff00ff;
+  --neon-purple: #9900ff;
+  --neon-yellow: #ffff00;
+  --dark-bg: rgba(10, 15, 30, 0.8);
+  --card-bg: rgba(20, 25, 45, 0.7);
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;700&display=swap');
+
+body {
+  font-family: 'Orbitron', 'Rajdhani', sans-serif;
+  background-color: #0a0f1e;
+  color: white;
+}
+
+/* Main container */
+.favorites-container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--dark-bg);
+  border-radius: 15px;
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.4),
+    0 0 40px rgba(153, 0, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.favorites-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    var(--neon-pink), var(--neon-cyan), var(--neon-yellow), var(--neon-pink)
+  );
+  background-size: 400%;
+  z-index: -1;
+  animation: neon-border 8s linear infinite;
+  border-radius: 17px;
+  opacity: 0.3;
+}
+
+@keyframes neon-border {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* Header section */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--neon-pink);
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+}
+
+/* Titles */
+.neon-title {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.neon-text {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+/* Pokemon grid */
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+/* Pokemon card */
+.pokemon-card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--neon-purple);
+  box-shadow: 0 0 15px rgba(153, 0, 255, 0.4);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 0 25px rgba(153, 0, 255, 0.7),
+    0 0 15px rgba(0, 255, 255, 0.5);
+  border-color: var(--neon-cyan);
+}
+
+.pokemon-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.1) 0%,
+    rgba(153, 0, 255, 0.1) 100%
+  );
+  z-index: -1;
+}
+
+/* Pokemon image */
+.pokemon-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.7));
+  transition: all 0.3s ease;
+}
+
+.pokemon-card:hover .pokemon-image {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.8));
+}
+
+/* Pokemon name */
+.pokemon-name {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan);
+  margin: 15px 0 10px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Pokemon details */
+.pokemon-details {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.pokemon-details p {
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink);
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.pokemon-details strong {
+  color: var(--neon-cyan);
+}
+
+/* Buttons */
+.neon-button {
+  background: rgba(255, 0, 85, 0.2);
+  border: 1px solid #ff0055;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.neon-button:hover {
+  background: rgba(255, 0, 85, 0.4);
+  box-shadow: 0 0 15px #ff0055;
+  transform: scale(1.05);
+}
+
+.delete-button {
+  background: rgba(255, 0, 0, 0.3);
+  border-color: #ff0000;
+}
+
+.delete-button:hover {
+  background: rgba(255, 0, 0, 0.5);
+  box-shadow: 0 0 15px #ff0000;
+}
+
+.save-button {
+  background: rgba(0, 255, 0, 0.3);
+  border-color: #00ff00;
+  margin-top: 15px;
+}
+
+.save-button:hover {
+  background: rgba(0, 255, 0, 0.5);
+  box-shadow: 0 0 15px #00ff00;
+}
+
+/* Loading states */
+.neon-spinner {
+  border: 3px solid rgba(0, 255, 255, 0.3);
+  border-top: 3px solid var(--neon-cyan);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.saving-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.neon-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--neon-cyan);
+  box-shadow: 0 0 5px var(--neon-cyan);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.neon-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.neon-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+/* Empty and error states */
+.empty-state,
+.error-state {
+  width: 100%;
+  padding: 40px;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  border: 1px dashed var(--neon-cyan);
+  color: var(--neon-cyan);
+  text-shadow: 0 0 5px var(--neon-cyan);
+  font-size: 1.2rem;
+}
+
+.error-state {
+  border-color: #ff0055;
+  color: #ff0055;
+  text-shadow: 0 0 5px #ff0055;
+}
+
+.error-message {
+  margin: 15px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .pokemon-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .pokemon-card {
+    padding: 15px;
+  }
+  
+  .pokemon-image {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .neon-title {
+    font-size: 1.5rem;
+  }
+}
